@@ -38,8 +38,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // Nếu chưa login, nó sẽ redirect tới trang /admin/login.
         http.authorizeRequests()
         .antMatchers("/register").permitAll()
-        .antMatchers("/user/**").hasRole("USER")
-        .antMatchers("/admin/**").hasRole("ADMIN")
+        .antMatchers("/user/**").permitAll()
+        .antMatchers("/admin/**").permitAll()
+//        .antMatchers("/user/**").hasRole("USER")
+//        .antMatchers("/admin/**").hasRole("ADMIN")
         ;
  
         // Các trang chỉ dành cho MANAGER
